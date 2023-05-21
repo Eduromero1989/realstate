@@ -1,1 +1,150 @@
-<p>create-inmuebles works!</p>
+<div>
+    <div>
+      <nb-card>
+        <nb-card-header>Registro de Inmuebles</nb-card-header>
+        <nb-card-body>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="inputDireccion" class="label">Dirección de Inmueble</label>
+                <input type="text" nbInput fullWidth id="inputDireccion" placeholder="Direccion">
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="inputSuperfificie" class="label">Superficie (M2)</label>
+                <input type="number" nbInput fullWidth id="inputSuperfificie" placeholder="Superficie">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputVenta" class="label">Valor de Venta del Inmueble</label>
+                <input type="number" nbInput fullWidth id="inputVenta" placeholder="Valor Venta">
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label class="col-sm-2 label">Estado</label>
+                <nb-radio-group>
+                  <nb-radio>Activo</nb-radio>
+                </nb-radio-group>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="inputHabitantes" class="label">N° de Habitantes</label>
+                <input type="number" nbInput fullWidth id="inputHabitantes" placeholder="Habitantes">
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="inputBaños" class="label">N° de Baños</label>
+                <input type="number" nbInput fullWidth id="inputBaños" placeholder="Baños">
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="inputCocina" class="label">N° de Cocinas</label>
+                <input type="number" nbInput fullWidth id="inputCocina" placeholder="Cocinas">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputAlquiler" class="label">Valor de Alquiler</label>
+                <input type="number" nbInput fullWidth id="inputAlquiler" placeholder="Valor Alquiler">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <nb-card>
+                  <nb-card-header>Gas Domiciliario</nb-card-header>
+                  <nb-card-body>
+                    <nb-select selected="1">
+                      <nb-option value="1">Si</nb-option>
+                      <nb-option value="2">No</nb-option>
+                    </nb-select>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <nb-card>
+                  <nb-card-header>Parqueadero</nb-card-header>
+                  <nb-card-body>
+                    <nb-select selected="1">
+                      <nb-option value="1">Si</nb-option>
+                      <nb-option value="2">No</nb-option>
+                    </nb-select>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <nb-card>
+                  <nb-card-header>Ofrecer para Venta</nb-card-header>
+                  <nb-card-body>
+                    <nb-select selected="1">
+                      <nb-option value="1">Si</nb-option>
+                      <nb-option value="2">No</nb-option>
+                    </nb-select>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <nb-card>
+                  <nb-card-header>Ofrecer para Alquiler</nb-card-header>
+                  <nb-card-body>
+                    <nb-select selected="1">
+                      <nb-option value="1">Si</nb-option>
+                      <nb-option value="2">No</nb-option>
+                    </nb-select>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputFechaInicio" class="label">Fecha inicio de disponibilidad</label>
+                <input type="date" nbInput fullWidth id="FechaInicio" placeholder="Inicio">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputFechaFin" class="label">Fecha fin de disponibilidad</label>
+                <input type="date" nbInput fullWidth id="FechaFin" placeholder="Fin">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <p></p>
+                <button _ngcontent-bbs-c259="" type="submit" nbButton status="success">
+                  <a _ngcontent-bbs-c259="" routerlink="../register" class="text-link"
+                    ng-reflect-router-link="../register" href="/auth/register">Guardar</a></button>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <p></p>
+                <button _ngcontent-bbs-c259="" type="submit" nbButton status="success">
+                  <a _ngcontent-bbs-c259="" routerlink="../dashboard" ng-reflect-router-link="../dashboard"
+                    href="/src/app/pages/dashboard/dashboard.component.html">Cancelar</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
