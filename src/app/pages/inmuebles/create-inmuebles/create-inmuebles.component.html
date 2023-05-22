@@ -3,23 +3,25 @@
       <nb-card>
         <nb-card-header>Registro de Inmuebles</nb-card-header>
         <nb-card-body>
+          <script src="/lib/jcs-auto-validate.min.js"></script>
           <div class="row">
             <div class="col-sm-4">
               <div class="form-group">
-                <label for="inputDireccion" class="label">Dirección de Inmueble</label>
-                <input type="text" nbInput fullWidth id="inputDireccion" placeholder="Direccion">
+                <label for="inputDireccion" class="label">Dirección de Inmueble </label><span class="required-asterisk"> *</span>
+                <input  class="form-control" type="text" nbInput fullWidth id="inputDireccion" placeholder="Direccion" required = "required">
+                
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
-                <label for="inputSuperfificie" class="label">Superficie (M2)</label>
-                <input type="number" nbInput fullWidth id="inputSuperfificie" placeholder="Superficie">
+                <label for="inputSuperfificie" class="label">Superficie (M2)</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="inputSuperfificie" placeholder="Superficie" required>
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
-                <label for="inputVenta" class="label">Valor de Venta del Inmueble</label>
-                <input type="number" nbInput fullWidth id="inputVenta" placeholder="Valor Venta">
+                <label for="inputVenta" class="label">Valor de Venta del Inmueble</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="inputVenta" placeholder="Valor Venta" required>
               </div>
             </div>
             <div class="col-sm-2">
@@ -34,26 +36,26 @@
           <div class="row">
             <div class="col-sm-2">
               <div class="form-group">
-                <label for="inputHabitantes" class="label">N° de Habitantes</label>
-                <input type="number" nbInput fullWidth id="inputHabitantes" placeholder="Habitantes">
+                <label for="inputHabitantes" class="label">N° de Habitantes</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="inputHabitantes" placeholder="Habitantes" required>
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
-                <label for="inputBaños" class="label">N° de Baños</label>
-                <input type="number" nbInput fullWidth id="inputBaños" placeholder="Baños">
+                <label for="inputBaños" class="label">N° de Baños</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="inputBaños" placeholder="Baños" required>
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
-                <label for="inputCocina" class="label">N° de Cocinas</label>
-                <input type="number" nbInput fullWidth id="inputCocina" placeholder="Cocinas">
+                <label for="inputCocina" class="label">N° de Cocinas</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="inputCocina" placeholder="Cocinas" required>
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
-                <label for="inputAlquiler" class="label">Valor de Alquiler</label>
-                <input type="number" nbInput fullWidth id="inputAlquiler" placeholder="Valor Alquiler">
+                <label for="inputAlquiler" class="label">Valor de Alquiler</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="inputAlquiler" placeholder="Valor Alquiler" required>
               </div>
             </div>
           </div>
@@ -76,7 +78,7 @@
                 <nb-card>
                   <nb-card-header>Parqueadero</nb-card-header>
                   <nb-card-body>
-                    <nb-select selected="1">
+                    <nb-select selected="1" required>
                       <nb-option value="1">Si</nb-option>
                       <nb-option value="2">No</nb-option>
                     </nb-select>
@@ -89,7 +91,7 @@
                 <nb-card>
                   <nb-card-header>Ofrecer para Venta</nb-card-header>
                   <nb-card-body>
-                    <nb-select selected="1">
+                    <nb-select selected="1" required>
                       <nb-option value="1">Si</nb-option>
                       <nb-option value="2">No</nb-option>
                     </nb-select>
@@ -102,7 +104,7 @@
                 <nb-card>
                   <nb-card-header>Ofrecer para Alquiler</nb-card-header>
                   <nb-card-body>
-                    <nb-select selected="1">
+                    <nb-select selected="1" required>
                       <nb-option value="1">Si</nb-option>
                       <nb-option value="2">No</nb-option>
                     </nb-select>
@@ -115,13 +117,13 @@
             <div class="col-sm-3">
               <div class="form-group">
                 <label for="inputFechaInicio" class="label">Fecha inicio de disponibilidad</label>
-                <input type="date" nbInput fullWidth id="FechaInicio" placeholder="Inicio">
+                <input type="date" nbInput fullWidth id="FechaInicio" placeholder="Inicio" required>
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
                 <label for="inputFechaFin" class="label">Fecha fin de disponibilidad</label>
-                <input type="date" nbInput fullWidth id="FechaFin" placeholder="Fin">
+                <input type="date" nbInput fullWidth id="FechaFin" placeholder="Fin" required>
               </div>
             </div>
           </div>
@@ -146,5 +148,8 @@
           </div>
         </nb-card-body>
       </nb-card>
+      <script>
+        var app=angular.module('DemoApp',['jcs-autoValidate']);
+        </script>
     </div>
   </div>
