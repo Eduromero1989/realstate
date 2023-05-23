@@ -19,6 +19,12 @@ const routes: Routes = [{
       component: DashboardComponent,
     },
     {
+      //Ruta del modulo de inmueble
+      path: 'inmuebles',
+      loadChildren: () => import('./inmuebles/inmuebles.module')
+      .then(m => m.InmueblesModule)
+    },
+    {
       path: 'layout',
       loadChildren: () => import('./layout/layout.module')
         .then(m => m.LayoutModule),
@@ -72,11 +78,6 @@ const routes: Routes = [{
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
-    },
-    {
-      path: 'user',
-      loadChildren: () => import('./user/user.module')
-        .then(m => m.UserModule)
     },
     {
       path: 'estate',

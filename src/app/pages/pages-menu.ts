@@ -27,14 +27,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ]
   },
   {
-    title: 'User',
-    icon: 'layout.outline',
+    title: 'Inmuebles',
+    icon: 'home-outline',
     children: [
       {
-        title: 'Listar',
-        link: '/pages/user/list'
-      }
-    ]
+        title:'Ingresar Inmueble',
+        icon: 'home-outline',
+        link:'/pages/inmuebles/create-inmuebles'
+
+      }]
+
   },
   {
     title: 'Layout',

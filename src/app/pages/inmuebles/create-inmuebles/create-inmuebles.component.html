@@ -1,0 +1,164 @@
+<div>
+    <div>
+      <nb-card>
+        <nb-card-header>Registro de Inmuebles</nb-card-header>
+        <nb-card-body>
+          <script src="/lib/jcs-auto-validate.min.js"></script>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="Direccion" class="label">Dirección de Inmueble </label><span class="required-asterisk"> *</span>
+                <input  class="form-control" type="text" nbInput fullWidth id="Direccion" placeholder="Direccion" 
+                [(ngModel)]="direccion"  required = "required">
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="Superficie" class="label">Superficie (M2)</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Superficie" placeholder="Superficie" 
+                [(ngModel)]="superficie" required = "required">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="Venta" class="label">Valor de Venta del Inmueble</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Venta" placeholder="Valor Venta"
+                [(ngModel)]="Venta" required>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label class="col-sm-2 label">Estado</label>
+                <nb-radio-group>
+                  <nb-radio [(ngModel)]="estado">Activo</nb-radio>
+                </nb-radio-group>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="Habitantes" class="label">N° de Habitantes</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Habitantes" placeholder="Habitantes" 
+                [(ngModel)]="habitaciones" required>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="Baños" class="label">N° de Baños</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Baños" placeholder="Baños" 
+                [(ngModel)]="banos" required>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="Cocina" class="label">N° de Cocinas</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Cocina" placeholder="Cocinas" 
+                [(ngModel)]="cocina" required>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="Alquiler" class="label">Valor Alquiler del Inmueble</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Alquiler" placeholder="Valor Alquiler" 
+                [(ngModel)]="alquiler" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <nb-card>
+                  <nb-card-header>Gas Domiciliario</nb-card-header>
+                  <nb-card-body>
+                    <nb-select [(ngModel)]="gas" selected="1">
+                      <nb-option value="1">Si</nb-option>
+                      <nb-option value="2">No</nb-option>
+                    </nb-select>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <nb-card>
+                  <nb-card-header>Parqueadero</nb-card-header>
+                  <nb-card-body>
+                    <nb-select [(ngModel)]="parqueadero" selected="1" required>
+                      <nb-option value="1">Si</nb-option>
+                      <nb-option value="2">No</nb-option>
+                    </nb-select>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <nb-card>
+                  <nb-card-header>Ofrecer para Venta</nb-card-header>
+                  <nb-card-body>
+                    <nb-select selected="1" [(ngModel)]="ventaI" required>
+                      <nb-option value="1">Si</nb-option>
+                      <nb-option value="2">No</nb-option>
+                    </nb-select>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <nb-card>
+                  <nb-card-header>Ofrecer para Alquiler</nb-card-header>
+                  <nb-card-body>
+                    <nb-select selected="1" [(ngModel)]="alquilerI"  required>
+                      <nb-option value="1">Si</nb-option>
+                      <nb-option value="2">No</nb-option>
+                    </nb-select>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="FechaInicio" class="label">Fecha inicio de disponibilidad</label>
+                <input type="date" nbInput fullWidth id="FechaInicio"
+                [(ngModel)]="fechaI" placeholder="Inicio" required>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="FechaFin" class="label">Fecha fin de disponibilidad</label>
+                <input type="date" nbInput fullWidth id="FechaFin" placeholder="Fin"
+                [(ngModel)]="fechaF" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <p></p>
+                    <form (click)="capturarDatos()">
+                      <!-- ...campos de entrada... -->
+                      <button type="submit" nbButton status="success">Guardar</button>
+                    </form>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <p></p>
+                <button _ngcontent-bbs-c259="" type="submit" nbButton status="success">
+                  <a _ngcontent-bbs-c259="" routerlink="../dashboard" ng-reflect-router-link="../dashboard"
+                    href="/src/app/pages/dashboard/dashboard.component.html">Cancelar</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+      <script>
+        var app=angular.module('DemoApp',['jcs-autoValidate']);
+        </script>
+    </div>
+  </div>
