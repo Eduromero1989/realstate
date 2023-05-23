@@ -1,0 +1,9 @@
+<div>
+    <div>
+        <input class="border rounded p-2 mb-2 mr-2" type="text" placeholder="Filtrar Predios..." [(ngModel)]="searchValue" />
+    </div>
+    <div class="row">
+        <ngx-card *ngFor="let estate of estates | filterBy : searchValue : 'title' : 'description'" [estate]="estate"
+            class="col-4"></ngx-card>
+    </div>
+</div>

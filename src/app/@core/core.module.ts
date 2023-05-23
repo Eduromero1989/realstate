@@ -52,6 +52,8 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
+import { EstateData } from './data/estate';
+import { EstateService } from './mock/estate.service';
 
 const socialLinks = [
   {
@@ -72,6 +74,7 @@ const socialLinks = [
 ];
 
 const DATA_SERVICES = [
+  { provide: EstateData, useClass: EstateService },
   { provide: UserData, useClass: UserService },
   { provide: ElectricityData, useClass: ElectricityService },
   { provide: SmartTableData, useClass: SmartTableService },

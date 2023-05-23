@@ -80,6 +80,11 @@ const routes: Routes = [{
       pathMatch: 'full',
     },
     {
+      path: 'estate',
+      loadChildren: () => import('./estate/estate.module')
+        .then(m => m.EstateModule)
+    },
+    {
       path: '**',
       component: NotFoundComponent,
     },
