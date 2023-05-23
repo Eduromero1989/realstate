@@ -6,13 +6,12 @@ import { IEstate } from '../estate.interface';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent  {
 
   @Input() estate: IEstate
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+
 
 }
