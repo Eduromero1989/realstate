@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="table-container">
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" class="text-center">Número de Referencia</th>
+      <th scope="col" class="text-center">Dirección</th>
+      <th scope="col" class="text-center">Superficie en m^²</th>
+      <th scope="col" class="text-center">Numero de Habitaciones</th>
+      <th scope="col" class="text-center">Numero de Baños</th>
+      <th scope="col" class="text-center">Numero de cocinas</th>
+      <th scope="col" class="text-center">Gas domiciliario</th>
+      <th scope="col" class="text-center">Parqueadero</th>
+      <th scope="col" class="text-center">Oferta Venta</th>
+      <th scope="col" class="text-center">Oferta Arquiler</th>
+      <th scope="col" class="text-center">Fecha Inicio</th>
+      <th scope="col" class="text-center">Fecha Fin</th>
+      <th scope="col" class="text-center">Valor Inmueble Arquiler</th>
+      <th scope="col" class="text-center">Valor Inmueble Venta</th>
+      <th scope="col" class="text-center">Estado</th>
+      <th scope="col" class="text-center">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center">123</td>
+      <td class="text-center">Calle 54 #20-10</td>
+      <td class="text-center">1500</td>
+      <td class="text-center">2</td>
+      <td class="text-center">2</td>
+      <td class="text-center">1</td>
+      <td class="text-center">Si</td>
+      <td class="text-center">Si</td>
+      <td class="text-center">No</td>
+      <td class="text-center">Si</td>
+      <td class="text-center">21/05/2023</td>
+      <td class="text-center">27/05/2023</td>
+      <td class="text-center">0</td>
+      <td class="text-center">1.000.000</td>
+      <td class="text-center">Activo</td>
+      <td class="text-center">
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editarModal">
+          <i class="fas fa-edit"></i>
+        </button>
+      </td>
+    </tr>
+    <!-- Más filas de datos -->
+  </tbody>
+</table>
+</div>
+<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#volverModal" [routerLink]="['/pages/inmueble/list']">
+  <i class="fas fa-arrow-left"></i> Volver
+</button>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
