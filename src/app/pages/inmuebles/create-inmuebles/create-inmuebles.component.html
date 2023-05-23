@@ -7,28 +7,30 @@
           <div class="row">
             <div class="col-sm-4">
               <div class="form-group">
-                <label for="inputDireccion" class="label">Dirección de Inmueble </label><span class="required-asterisk"> *</span>
-                <input  class="form-control" type="text" nbInput fullWidth id="inputDireccion" placeholder="Direccion" required = "required">
-                
+                <label for="Direccion" class="label">Dirección de Inmueble </label><span class="required-asterisk"> *</span>
+                <input  class="form-control" type="text" nbInput fullWidth id="Direccion" placeholder="Direccion" 
+                [(ngModel)]="direccion"  required = "required">
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
-                <label for="inputSuperfificie" class="label">Superficie (M2)</label><span class="required-asterisk"> *</span>
-                <input type="number" nbInput fullWidth id="inputSuperfificie" placeholder="Superficie" required>
+                <label for="Superficie" class="label">Superficie (M2)</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Superficie" placeholder="Superficie" 
+                [(ngModel)]="superficie" required = "required">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
-                <label for="inputVenta" class="label">Valor de Venta del Inmueble</label><span class="required-asterisk"> *</span>
-                <input type="number" nbInput fullWidth id="inputVenta" placeholder="Valor Venta" required>
+                <label for="Venta" class="label">Valor de Venta del Inmueble</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Venta" placeholder="Valor Venta"
+                [(ngModel)]="Venta" required>
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
                 <label class="col-sm-2 label">Estado</label>
                 <nb-radio-group>
-                  <nb-radio>Activo</nb-radio>
+                  <nb-radio [(ngModel)]="estado">Activo</nb-radio>
                 </nb-radio-group>
               </div>
             </div>
@@ -36,26 +38,30 @@
           <div class="row">
             <div class="col-sm-2">
               <div class="form-group">
-                <label for="inputHabitantes" class="label">N° de Habitantes</label><span class="required-asterisk"> *</span>
-                <input type="number" nbInput fullWidth id="inputHabitantes" placeholder="Habitantes" required>
+                <label for="Habitantes" class="label">N° de Habitantes</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Habitantes" placeholder="Habitantes" 
+                [(ngModel)]="habitaciones" required>
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
-                <label for="inputBaños" class="label">N° de Baños</label><span class="required-asterisk"> *</span>
-                <input type="number" nbInput fullWidth id="inputBaños" placeholder="Baños" required>
+                <label for="Baños" class="label">N° de Baños</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Baños" placeholder="Baños" 
+                [(ngModel)]="banos" required>
               </div>
             </div>
             <div class="col-sm-2">
               <div class="form-group">
-                <label for="inputCocina" class="label">N° de Cocinas</label><span class="required-asterisk"> *</span>
-                <input type="number" nbInput fullWidth id="inputCocina" placeholder="Cocinas" required>
+                <label for="Cocina" class="label">N° de Cocinas</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Cocina" placeholder="Cocinas" 
+                [(ngModel)]="cocina" required>
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
-                <label for="inputAlquiler" class="label">Valor de Alquiler</label><span class="required-asterisk"> *</span>
-                <input type="number" nbInput fullWidth id="inputAlquiler" placeholder="Valor Alquiler" required>
+                <label for="Alquiler" class="label">Valor Alquiler del Inmueble</label><span class="required-asterisk"> *</span>
+                <input type="number" nbInput fullWidth id="Alquiler" placeholder="Valor Alquiler" 
+                [(ngModel)]="alquiler" required>
               </div>
             </div>
           </div>
@@ -65,7 +71,7 @@
                 <nb-card>
                   <nb-card-header>Gas Domiciliario</nb-card-header>
                   <nb-card-body>
-                    <nb-select selected="1">
+                    <nb-select [(ngModel)]="gas" selected="1">
                       <nb-option value="1">Si</nb-option>
                       <nb-option value="2">No</nb-option>
                     </nb-select>
@@ -78,7 +84,7 @@
                 <nb-card>
                   <nb-card-header>Parqueadero</nb-card-header>
                   <nb-card-body>
-                    <nb-select selected="1" required>
+                    <nb-select [(ngModel)]="parqueadero" selected="1" required>
                       <nb-option value="1">Si</nb-option>
                       <nb-option value="2">No</nb-option>
                     </nb-select>
@@ -91,7 +97,7 @@
                 <nb-card>
                   <nb-card-header>Ofrecer para Venta</nb-card-header>
                   <nb-card-body>
-                    <nb-select selected="1" required>
+                    <nb-select selected="1" [(ngModel)]="ventaI" required>
                       <nb-option value="1">Si</nb-option>
                       <nb-option value="2">No</nb-option>
                     </nb-select>
@@ -104,7 +110,7 @@
                 <nb-card>
                   <nb-card-header>Ofrecer para Alquiler</nb-card-header>
                   <nb-card-body>
-                    <nb-select selected="1" required>
+                    <nb-select selected="1" [(ngModel)]="alquilerI"  required>
                       <nb-option value="1">Si</nb-option>
                       <nb-option value="2">No</nb-option>
                     </nb-select>
@@ -116,14 +122,16 @@
           <div class="row">
             <div class="col-sm-3">
               <div class="form-group">
-                <label for="inputFechaInicio" class="label">Fecha inicio de disponibilidad</label>
-                <input type="date" nbInput fullWidth id="FechaInicio" placeholder="Inicio" required>
+                <label for="FechaInicio" class="label">Fecha inicio de disponibilidad</label>
+                <input type="date" nbInput fullWidth id="FechaInicio"
+                [(ngModel)]="fechaI" placeholder="Inicio" required>
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
-                <label for="inputFechaFin" class="label">Fecha fin de disponibilidad</label>
-                <input type="date" nbInput fullWidth id="FechaFin" placeholder="Fin" required>
+                <label for="FechaFin" class="label">Fecha fin de disponibilidad</label>
+                <input type="date" nbInput fullWidth id="FechaFin" placeholder="Fin"
+                [(ngModel)]="fechaF" required>
               </div>
             </div>
           </div>
@@ -131,9 +139,10 @@
             <div class="col-sm-2">
               <div class="form-group">
                 <p></p>
-                <button _ngcontent-bbs-c259="" type="submit" nbButton status="success">
-                  <a _ngcontent-bbs-c259="" routerlink="../register" class="text-link"
-                    ng-reflect-router-link="../register" href="/auth/register">Guardar</a></button>
+                    <form (click)="capturarDatos()">
+                      <!-- ...campos de entrada... -->
+                      <button type="submit" nbButton status="success">Guardar</button>
+                    </form>
               </div>
             </div>
             <div class="col-sm-2">

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CreateInmueblesComponent } from './create-inmuebles/create-inmuebles.component';
 import {
@@ -33,6 +34,8 @@ import { ThemeModule } from '../../@theme/theme.module';
     FormsRoutingModule,
     NbSelectModule,
     NbIconModule,
+    FormsModule,
+    ReactiveFormsModule,
     //ngFormsModule,
     CommonModule,
     InmueblesRoutingModule
