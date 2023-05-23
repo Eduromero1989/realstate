@@ -79,6 +79,11 @@ const routes: Routes = [{
         .then(m => m.UserModule)
     },
     {
+      path: 'estate',
+      loadChildren: () => import('./estate/estate.module')
+        .then(m => m.EstateModule)
+    },
+    {
       path: '**',
       component: NotFoundComponent,
     },

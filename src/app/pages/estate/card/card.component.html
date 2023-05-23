@@ -1,0 +1,11 @@
+<nb-card>
+    <nb-card-header>
+        <img [src]="estate.photo" alt="Estate photo" class="w-100 img-fluid rounded img">
+    </nb-card-header>
+    <nb-card-body>
+        <h5>{{estate.title}}</h5>
+        <p>{{estate.description}}</p>
+        <p>{{estate.type}}</p>
+    </nb-card-body>
+    <nb-card-footer> <span class="text-primary font-weight-bold">Precio: </span> {{estate.price}}</nb-card-footer>
+</nb-card>

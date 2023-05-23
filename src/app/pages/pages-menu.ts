@@ -17,6 +17,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
+    title: 'Propiedades',
+    icon: 'layout.outline',
+    children: [
+      {
+        title: 'Listar',
+        link: '/pages/estate'
+      }
+    ]
+  },
+  {
     title: 'User',
     icon: 'layout.outline',
     children: [
