@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ngx-create-inmuebles',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-inmuebles.component.scss']
 })
 export class CreateInmueblesComponent {
-
+  
   constructor() { }
+  
   /*
   implements OnInit 
   ngOnInit(): void {
@@ -27,8 +29,32 @@ export class CreateInmueblesComponent {
   alquilerI: boolean;
   fechaI: Date;
   fechaF: Date;
+  
 
-  capturarDatos() {
+  
+  validarCampos(): boolean {
+      if(
+      this.direccion &&
+      this.superficie &&
+      this.Venta &&
+      this.habitaciones &&
+      this.banos &&
+      this.cocina &&
+      this.alquiler &&
+      this.gas &&
+      this.parqueadero &&
+      this.ventaI &&
+      this.alquilerI
+      ){
+        return new Date(this.fechaF) >= new Date(this.fechaI);
+      }
+      return false;
+  }
+  
+  capturarDatos(): void {
+    if(this.validarCampos()){
+    const confirmacion = window.confirm('¿Estás seguro de enviar el formulario?');
+    if(confirmacion){
     console.log('Direccion:', this.direccion);
     console.log('Superficie:', this.superficie);
     console.log('Valor Venta:', this.Venta);
@@ -43,7 +69,13 @@ export class CreateInmueblesComponent {
     console.log('En alquiler:', this.alquilerI);
     console.log('fecha Inicio:', this.fechaI);
     console.log('fecha Fi :', this.fechaF);
-    
+    window.alert('¡Registro exitoso!');
+    }else{
+
+      window.alert('¡Registro Imcompleto!');
+    }
   }
+  }
+  
 
 }
