@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Registro de Usuario</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+
+    .scroll-container {
+      max-height: 400px;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="mt-5">Registro de Usuario</h1>
+    <div class="scroll-container">
+      <form [formGroup]="registroForm" (ngSubmit)="guardarUsuario()" class="mt-4">
+        <div class="form-group">
+          <label for="nombres">Nombres:</label>
+          <input type="text" id="nombres" formControlName="nombres" class="form-control">
+          <div *ngIf="registroForm.get('nombres').invalid && registroForm.get('nombres').touched"
+            class="alert alert-danger">
+            Por favor, ingrese un nombre válido.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="apellidos">Apellidos:</label>
+          <input type="text" id="apellidos" formControlName="apellidos" class="form-control">
+          <div *ngIf="registroForm.get('apellidos').invalid && registroForm.get('apellidos').touched"
+            class="alert alert-danger">
+            Por favor, ingrese apellidos válidos.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="identificacion">Número de Identificación:</label>
+          <input type="text" id="identificacion" formControlName="identificacion" class="form-control">
+          <div *ngIf="registroForm.get('identificacion').invalid && registroForm.get('identificacion').touched"
+            class="alert alert-danger">
+            Por favor, ingrese un número de identificación válido.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" formControlName="correo" class="form-control">
+          <div *ngIf="registroForm.get('correo').invalid && registroForm.get('correo').touched"
+            class="alert alert-danger">
+            Por favor, ingrese un correo electrónico válido.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="celular">Número de Celular:</label>
+          <input type="text" id="celular" formControlName="celular" class="form-control">
+          <div *ngIf="registroForm.get('celular').invalid && registroForm.get('celular').touched"
+            class="alert alert-danger">
+            Por favor, ingrese un número de celular válido.
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <label for="direccion">Dirección de Residencia:</label>
+          <input type="text" id="direccion" formControlName="direccion" class="form-control">
+          <div *ngIf="registroForm.get('direccion').invalid && registroForm.get('direccion').touched"
+            class="alert alert-danger">
+            Por favor, ingrese una dirección válida.
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="contrasena">Contraseña:</label>
+          <input type="password" id="contrasena" formControlName="contrasena" class="form-control">
+          <div *ngIf="registroForm.get('contrasena').invalid && registroForm.get('contrasena').touched"
+            class="alert alert-danger">
+            Por favor, ingrese una contraseña válida.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmacion">Confirmar Contraseña:</label>
+          <input type="password" id="confirmacion" formControlName="confirmacion" class="form-control">
+          <div *ngIf="registroForm.get('confirmacion').invalid && registroForm.get('confirmacion').touched"
+            class="alert alert-danger">
+            Por favor, ingrese una confirmación de contraseña válida.
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <input type="submit" value="Guardar" class="btn btn-primary">
+          <input type="button" value="Cancelar" (click)="cancelar()" class="btn btn-secondary">
+        </div>
+
+        <div *ngIf="!registroForm.valid && registroForm.touched" class="mt-4 alert alert-danger">
+          Datos mal diligenciados. Por favor, complete todos los campos correctamente.
+        </div>
+
+        <div *ngIf="registroExitoso" class="mt-4 alert alert-success">
+          Registro exitoso.
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

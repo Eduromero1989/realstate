@@ -13,6 +13,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },
   {
+    title: 'Registrar usuario',
+    icon: 'home-outline',
+    children:[
+      {
+        title: 'Mostrar registro usuario',
+        icon: 'home-outline',
+        link: '/pages/registro/usuario'
+      }
+    ]
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

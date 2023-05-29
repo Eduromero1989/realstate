@@ -15,6 +15,12 @@ const routes: Routes = [{
       component: ECommerceComponent,
     },
     {
+      //ruta inmueble
+      path: 'registro',
+      loadChildren: () => import('./registro/registro.module')
+      .then(m => m.RegistroModule)
+    },
+    {
       path: 'iot-dashboard',
       component: DashboardComponent,
     },
