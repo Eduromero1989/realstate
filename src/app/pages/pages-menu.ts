@@ -28,16 +28,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
-    title: 'User',
-    icon: 'layout.outline',
-    children: [
-      {
-        title: 'Listar',
-        link: '/pages/user/list'
-      }
-    ]
-  },
-  {
     title: 'Layout',
     icon: 'layout-outline',
     children: [
