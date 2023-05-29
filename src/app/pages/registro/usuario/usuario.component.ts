@@ -43,6 +43,7 @@ export class UsuarioComponent implements OnInit {
     // Lógica para cancelar el registro
   }
   ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
 }
