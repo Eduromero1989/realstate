@@ -8,7 +8,7 @@ import { NbDialogService } from "@nebular/theme";
 import { ConfirmationDialogComponent } from "./confirm.modal.component";
 
 @Component({
-  selector: "app-list-branch-office",
+  selector: "ngx-list-branch-office",
   templateUrl: "./list.component.html",
   styleUrls: ["./list.component.scss"],
 })
