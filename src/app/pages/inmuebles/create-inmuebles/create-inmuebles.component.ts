@@ -8,7 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
   templateUrl: './create-inmuebles.component.html',
   styleUrls: ['./create-inmuebles.component.scss']
 })
-export class CreateInmueblesComponent implements OnInit {
+export class CreateInmueblesComponent{
   inmuebleForm: FormGroup;
 
   constructor(private apiServices: ApiService) { }
@@ -33,10 +33,10 @@ export class CreateInmueblesComponent implements OnInit {
   opciones_sucursal: any[] = [];
   seleccion: any;
 
-  ngOnInit(): void {
+ /* ngOnInit(): void {
 
     this.obtenerDatos();
-  }
+  }*/
 
   obtenerDatos() {
     this.apiServices.obtenerDatos().subscribe((data: any[]) => {
