@@ -13,13 +13,13 @@ export class CreateInmueblesComponent{
 
   constructor(private apiServices: ApiService) { }
 
-  sucursal: string;
+  sucursal: number;
   referencia: string;
   direccion: string;
   superficie: number;
   Venta: number;
-  estado: string;
-  tipo: string;
+  estado: number;
+  tipo: number;
   habitaciones: number;
   banos: number;
   cocina: number;
@@ -32,6 +32,9 @@ export class CreateInmueblesComponent{
   fechaF: Date;
   opciones_sucursal: any[] = [];
   seleccion: any;
+
+  /////
+  seleccion_sucursal: string;
   
  /* ngOnInit(): void {
 
@@ -72,22 +75,41 @@ export class CreateInmueblesComponent{
     return false;
   }
 
+  GetSucursal():void{
+    let datos = {
+      "nombre": this.seleccion_sucursal,
+    }
+    this.apiServices
+    .callServices('http://localhost:5235/ServicioSucursales', 'get',datos)
+    .subscribe(
+      (response) => {
+        console.log('Response ApiService:', response);
+        // Hacer algo con la respuesta del servicio
+      },
+      (error) => {
+        console.error('Error ApiService:', error);
+        // Manejar el error de la solicitud
+      }
+    );
+
+  }
+
   Post(): void {
     if (this.validarCampos()) {
       let datos = {
-        "id": 0,
-        "idSucursal": this.sucursal,
-        "idTipoInmueble": this.seleccion,
+        "id": 1,
+        "idSucursal": 1,
+        "idTipoInmueble": 1,
         "idPersona": 1,
-        "idEstado": this.estado,
+        "idEstado": 1,
         "referencia": this.referencia,
         "direccion": this.direccion,
         "superficie": this.superficie,
         "nroHabitaciones": this.habitaciones,
         "nroBanios": this.banos,
-        "nroCocinas": this.cocina,
-        "tieneGas": this.gas,
-        "tieneParqueadero": this.parqueadero,
+        "nroCocinas":this.cocina,
+        "tieneGas": true,
+        "tieneParqueadero": true,
       }
       const confirmacion = window.confirm('¿Estás seguro de enviar el formulario?');
       if (confirmacion) {
