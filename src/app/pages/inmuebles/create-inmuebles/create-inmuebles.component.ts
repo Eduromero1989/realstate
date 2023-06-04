@@ -8,14 +8,12 @@ import { HttpHeaders } from '@angular/common/http';
   templateUrl: './create-inmuebles.component.html',
   styleUrls: ['./create-inmuebles.component.scss']
 })
-export class CreateInmueblesComponent{
+export class CreateInmueblesComponent implements OnInit {
   inmuebleForm: FormGroup;
 
-  constructor(
-    private apiServices: ApiService
-  ) { }
+  constructor(private apiServices: ApiService) { }
 
-  sucursal : string;
+  sucursal: string;
   referencia: string;
   direccion: string;
   superficie: number;
@@ -32,11 +30,20 @@ export class CreateInmueblesComponent{
   alquilerI: boolean;
   fechaI: Date;
   fechaF: Date;
+  opciones_sucursal: any[] = [];
+  seleccion: any;
 
+  ngOnInit(): void {
 
-  /*ngOnInit(): void {
-    
-  }*/
+    this.obtenerDatos();
+  }
+
+  obtenerDatos() {
+    this.apiServices.obtenerDatos().subscribe((data: any[]) => {
+      this.opciones_sucursal = data;
+    });
+  }
+
 
   validarCampos(): boolean {
     if (
@@ -58,19 +65,21 @@ export class CreateInmueblesComponent{
     ) {
       return new Date(this.fechaF) >= new Date(this.fechaI);
     }
-    return false;
-  }
+    return false;
+  }
 
   Post(): void {
     if (this.validarCampos()) {
       const confirmacion = window.confirm('¿Estás seguro de enviar el formulario?');
       if (confirmacion) {
+        //Authorization: Basic <credenciales en base64>;
         const username = 'edulds1989@gmail.com';
         const password = '1234';
+        const credentials = btoa(username + ':' + password);
 
         const headers = new HttpHeaders({
           'Content-Type': 'application/json',
-          Authorization: 'Basic ' + btoa(username + ':' + password)
+          'Authorization': 'Basic ' + credentials
         });
 
         const httpOptions = {
@@ -79,11 +88,7 @@ export class CreateInmueblesComponent{
 
 
         this.apiServices
-          .callServices(
-            'http://localhost:5235/ServicioInmuebles',
-            'post',
-            httpOptions
-          )
+          .callServices('http://127.0.0.1:5235/ServicioInmuebles', 'post', httpOptions)
           .subscribe(
             (response) => {
               console.log('Response ApiService:', response);
