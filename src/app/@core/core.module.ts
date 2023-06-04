@@ -54,6 +54,8 @@ import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
 import { EstateData } from './data/estate';
 import { EstateService } from './mock/estate.service';
+import { BranchOfficeData } from './data/branch-office';
+import { BranchOfficeService } from './mock/branch-office';
 
 const socialLinks = [
   {
@@ -75,6 +77,7 @@ const socialLinks = [
 
 const DATA_SERVICES = [
   { provide: EstateData, useClass: EstateService },
+  { provide: BranchOfficeData, useClass: BranchOfficeService },
   { provide: UserData, useClass: UserService },
   { provide: ElectricityData, useClass: ElectricityService },
   { provide: SmartTableData, useClass: SmartTableService },
