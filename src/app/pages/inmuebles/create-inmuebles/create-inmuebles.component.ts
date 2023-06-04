@@ -32,17 +32,21 @@ export class CreateInmueblesComponent{
   fechaF: Date;
   opciones_sucursal: any[] = [];
   seleccion: any;
-
+  
  /* ngOnInit(): void {
 
     this.obtenerDatos();
   }*/
 
-  obtenerDatos() {
+  /**
+   * The function "obtenerDatos" retrieves data from an API service and assigns it to the
+   * "opciones_sucursal" variable.
+   */
+  /*obtenerDatos() {
     this.apiServices.obtenerDatos().subscribe((data: any[]) => {
       this.opciones_sucursal = data;
     });
-  }
+  }*/
 
 
   validarCampos(): boolean {
@@ -70,25 +74,27 @@ export class CreateInmueblesComponent{
 
   Post(): void {
     if (this.validarCampos()) {
+      let datos = {
+        "id": 0,
+        "idSucursal": this.sucursal,
+        "idTipoInmueble": this.seleccion,
+        "idPersona": 1,
+        "idEstado": this.estado,
+        "referencia": this.referencia,
+        "direccion": this.direccion,
+        "superficie": this.superficie,
+        "nroHabitaciones": this.habitaciones,
+        "nroBanios": this.banos,
+        "nroCocinas": this.cocina,
+        "tieneGas": this.gas,
+        "tieneParqueadero": this.parqueadero,
+      }
       const confirmacion = window.confirm('¿Estás seguro de enviar el formulario?');
       if (confirmacion) {
         //Authorization: Basic <credenciales en base64>;
-        const username = 'edulds1989@gmail.com';
-        const password = '1234';
-        const credentials = btoa(username + ':' + password);
-
-        const headers = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': 'Basic ' + credentials
-        });
-
-        const httpOptions = {
-          headers: headers
-        };
-
-
+        
         this.apiServices
-          .callServices('http://127.0.0.1:5235/ServicioInmuebles', 'post', httpOptions)
+          .callServices('http://localhost:5235/ServicioInmuebles', 'post',datos)
           .subscribe(
             (response) => {
               console.log('Response ApiService:', response);
