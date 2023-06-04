@@ -8,7 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
   templateUrl: './create-inmuebles.component.html',
   styleUrls: ['./create-inmuebles.component.scss']
 })
-export class CreateInmueblesComponent implements OnInit {
+export class CreateInmueblesComponent{
   inmuebleForm: FormGroup;
 
   constructor(
@@ -34,9 +34,9 @@ export class CreateInmueblesComponent implements OnInit {
   fechaF: Date;
 
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     
-  }
+  }*/
 
   validarCampos(): boolean {
     if (
