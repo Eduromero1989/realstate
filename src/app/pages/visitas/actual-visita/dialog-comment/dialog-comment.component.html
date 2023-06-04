@@ -1,0 +1,12 @@
+<nb-card>
+  <nb-card-header>{{ title }}</nb-card-header>
+  <nb-card-body>
+    <div class="cls-text-area">
+      <textarea class="cls-inner-text-area" rows="5" nbInput fullWidth shape="round" placeholder="¡Ingresa tus comentarios aquí!"></textarea>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton hero status="primary" (click)="dismiss()">Agregar comentario</button>
+  </nb-card-footer>
+
+</nb-card>
