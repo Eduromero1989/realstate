@@ -1,0 +1,52 @@
+.table {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+}
+
+.table thead th {
+  font-weight: bold;
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.table tbody td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.table-container {
+  max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+  overflow-y: auto;
+}
+
+/* Other SCSS code */
+
+.line42 {
+  /* SCSS styles */
+}
+
+/* More SCSS code */
+
+/* End of file */

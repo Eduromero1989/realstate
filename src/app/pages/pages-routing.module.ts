@@ -15,6 +15,12 @@ const routes: Routes = [{
       component: ECommerceComponent,
     },
     {
+      //ruta inmueble
+      path: 'inmueble',
+      loadChildren: () => import('./inmueble/inmueble.module')
+      .then(m => m.InmuebleModule)
+    },
+    {
       path: 'iot-dashboard',
       component: DashboardComponent,
     },
@@ -78,6 +84,16 @@ const routes: Routes = [{
       path: '',
       redirectTo: 'dashboard',
       pathMatch: 'full',
+    },
+    {
+      path: 'estate',
+      loadChildren: () => import('./estate/estate.module')
+        .then(m => m.EstateModule)
+    },
+    {
+      path: 'visitas',
+      loadChildren: () => import('./visitas/visitas.module')
+        .then(m => m.VisitasModule)
     },
     {
       path: '**',
