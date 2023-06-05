@@ -4,6 +4,7 @@ import { ShowcaseDialogComponent } from '../../modal-overlays/dialog/showcase-di
 import { NbDialogService } from '@nebular/theme';
 import { DialogCommentComponent } from './dialog-comment/dialog-comment.component';
 import { ApiService } from '../../api-service.service';
+import { HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -14,6 +15,21 @@ import { ApiService } from '../../api-service.service';
 export class ActualVisitaComponent implements OnInit {
 
   data: any;
+
+
+  username = 'calosegc11@gmail.com';
+  password = '12345';
+  credentials = btoa(this.username + ':' + this.password);
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': 'Basic ' + this.credentials
+  });
+
+  httpOptions = {
+    headers: this.headers
+  }
+
+
 
   listaInmuebles = [
     {
@@ -49,23 +65,27 @@ export class ActualVisitaComponent implements OnInit {
   constructor(
 
     private dialogService: NbDialogService,
-    private apiService: ApiService
+    private apiService: ApiService,
 
   ) { }
 
 
   ngOnInit(): void {
-
     this.showInfo();
-
-    this.apiService.callServices('http://localhost:5235/ServicioVisitas', 'get').subscribe(
-      (response) => {
-        console.log('Response apiService: ', response);
-        this.data = JSON.parse(response.data);
-      }
-    );
-
+    this.apiService
+      .callServices('http://localhost/ServicioInmuebles', 'get', this.httpOptions)
+      .subscribe(
+        (response) => {
+          console.log('Response ApiService:', response);
+          // Hacer algo con la respuesta del servicio
+        },
+        (error) => {
+          console.error('Error ApiService:', error);
+          // Manejar el error de la solicitud
+        }
+      );
   }
+
 
   /**
    * @description función que muestra por consola los datos del arreglo
@@ -75,7 +95,7 @@ export class ActualVisitaComponent implements OnInit {
    * @returns
    */
   showInfo(): void {
-    console.log(this.listaInmuebles);
+    // console.log(this.listaInmuebles);
   }
 
   /**
