@@ -97,11 +97,6 @@ const routes: Routes = [{
         .then(m => m.EstateModule)
     },
     {
-      path: 'visitas',
-      loadChildren: () => import('./visitas/visitas.module')
-        .then(m => m.VisitasModule)
-    },
-    {
       path: '**',
       component: NotFoundComponent,
     },

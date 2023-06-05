@@ -19,11 +19,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Inmuebles',
     icon: 'home-outline',
-    children:[
+    children: [
       {
-        title:'Ingresar Inmueble',
+        title: 'Ingresar Inmueble',
         icon: 'home-outline',
-        link:'/pages/inmuebles/create-inmuebles'
+        link: '/pages/inmuebles/create-inmuebles'
 
       },
       {
@@ -42,6 +42,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/estate'
       }
     ]
+  },
+  {
+    //Listar visitas inmueble
+    title: 'visitas',
+    icon: 'keypad-outline',
+    link: '/pages/visitas/actual-visita'
   },
   {
     title: 'Layout',
