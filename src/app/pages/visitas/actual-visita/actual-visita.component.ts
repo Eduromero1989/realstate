@@ -3,6 +3,7 @@ import { log } from 'console';
 import { ShowcaseDialogComponent } from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 import { NbDialogService } from '@nebular/theme';
 import { DialogCommentComponent } from './dialog-comment/dialog-comment.component';
+import { ApiService } from '../../api-service.service';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { DialogCommentComponent } from './dialog-comment/dialog-comment.componen
   styleUrls: ['./actual-visita.component.scss']
 })
 export class ActualVisitaComponent implements OnInit {
+
+  data: any;
 
   listaInmuebles = [
     {
@@ -45,14 +48,23 @@ export class ActualVisitaComponent implements OnInit {
 
   constructor(
 
-    private dialogService: NbDialogService
+    private dialogService: NbDialogService,
+    private apiService: ApiService
 
   ) { }
-  
+
 
   ngOnInit(): void {
 
     this.showInfo();
+
+    this.apiService.callServices('http://localhost:5235/ServicioVisitas', 'get').subscribe(
+      (response) => {
+        console.log('Response apiService: ', response);
+        this.data = JSON.parse(response.data);
+      }
+    );
+
   }
 
   /**
