@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IEstate } from '../estate.interface';
+import { NbIconLibraries } from '@nebular/theme';
 
 @Component({
   selector: 'ngx-card',
@@ -10,7 +11,10 @@ export class CardComponent  {
 
   @Input() estate: IEstate
 
-  constructor() { }
+  constructor(iconsLibrary: NbIconLibraries) { 
+    iconsLibrary.registerFontPack('fa', { packClass: 'fa', iconClassPrefix: 'fa' });
+    iconsLibrary.registerFontPack('ion', { iconClassPrefix: 'ion' });
+  }
 
 
 

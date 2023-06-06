@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
   constructor(private estateService: EstateData) { }
 
   ngOnInit(): void {
-    this.estateService.getEstates().subscribe((estates: IEstate[]) => {
+    this.estateService.getOffers().subscribe((estates: IEstate[]) => {
       this.estates = estates;
     });
   }

@@ -4,8 +4,44 @@
     </nb-card-header>
     <nb-card-body>
         <h5>{{estate.title}}</h5>
-        <p>{{estate.description}}</p>
         <p>{{estate.type}}</p>
+        <p>{{estate.description}}</p>
+        <p>Sucursal: {{estate.sucursal}}</p>
+        <p>Dirección: {{estate.address}}</p>
     </nb-card-body>
-    <nb-card-footer> <span class="text-primary font-weight-bold">Precio: </span> {{estate.price}}</nb-card-footer>
+    <nb-card-footer>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex">
+                <nb-icon nbTooltip="Baños" nbTooltipStatus="primary" pack="fa" class="mr-2" icon="bath"></nb-icon>
+                <p>{{estate.bathroms}}</p>
+            </div>
+            <div class="d-flex">
+                <nb-icon nbTooltip="Cocinas" nbTooltipStatus="primary" pack="ion" class="mr-2" icon="beer"></nb-icon>
+                <p>{{estate.kitchens}}</p>
+            </div>
+            <div class="d-flex">
+                <nb-icon nbTooltip="Habitaciones" nbTooltipStatus="primary" pack="fa" class="mr-2"
+                    icon="house-user"></nb-icon>
+                <p>{{estate.rooms}}</p>
+            </div>
+            <div class="d-flex">
+                <nb-icon nbTooltip="Parqueadero" nbTooltipStatus="primary" pack="fa" class="mr-2"
+                    icon="warehouse"></nb-icon>
+                <p>{{estate.hasParking?'Si':'No'}}</p>
+            </div>
+            <div class="d-flex">
+                <nb-icon nbTooltip="Area" nbTooltipStatus="primary" pack="fa" class="mr-2"
+                    icon="expand"></nb-icon>
+                <p>{{estate.area}} m²</p>
+            </div>
+        </div>
+        <br>
+        <div class="d-flex align-items-center">
+            <span class="text-primary font-weight-bold">Precio: </span> {{estate.price | currency}}
+            <button nbButton status="primary" shape>
+                <nb-icon icon="calendar-plus" pack="fa"></nb-icon>
+                Solicitar visita
+            </button>
+        </div>
+    </nb-card-footer>
 </nb-card>
