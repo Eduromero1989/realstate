@@ -1,0 +1,13 @@
+<div>
+  <!-- create a table -->
+  <nb-card-body>
+    <ng2-smart-table
+      [settings]="settings"
+      [source]="source"
+      (editConfirm)="onEditConfirm($event)"
+      (deleteConfirm)="onDeleteConfirm($event)"
+      (createConfirm)="createConfirm($event)"
+    >
+    </ng2-smart-table>
+  </nb-card-body>
+</div>

@@ -53,6 +53,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }
     ]
   },
+  {
+    title: 'Sucursales',
+    icon: 'briefcase-outline',
+    children: [
+      {
+        title: 'Listar',
+        link: '/pages/branch-office'
+      }
+    ]
+  },
   // {
     //   title: 'Layout',
   //   icon: 'layout-outline',
