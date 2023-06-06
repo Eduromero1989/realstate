@@ -55,7 +55,7 @@ import { MockDataModule } from './mock/mock-data.module';
 import { EstateData } from './data/estate';
 import { BranchOfficeData } from './data/branch-office';
 import { BranchOfficeService } from './mock/branch-office';
-import { EstateService } from './services/estate.service';
+import { EstateService } from './mock/estate.service';
 
 const socialLinks = [
   {
