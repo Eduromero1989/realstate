@@ -53,9 +53,9 @@ import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
 import { EstateData } from './data/estate';
-import { EstateService } from './mock/estate.service';
 import { BranchOfficeData } from './data/branch-office';
 import { BranchOfficeService } from './mock/branch-office';
+import { EstateService } from './services/estate.service';
 
 const socialLinks = [
   {
