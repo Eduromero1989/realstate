@@ -1,9 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +9,8 @@ export class ApiService {
        
   constructor(private httpClient:HttpClient) { }
 
-  callServices(url:string, method: string, body?:any): Observable<any> {
-    const username = 'edulds1989@gmail.com';
+  callServices(url:string, method:string, body?:any): Observable<any> {
+    const username = 'edulds1989@gamil.com';
     const password = '1234';
     const credentials = btoa(username + ':' + password);
 
@@ -27,7 +24,7 @@ export class ApiService {
     };
     //let url ="http://localhost:5006/materia/getOfici";
     if(method == 'get'){
-      return this.httpClient.get(url, httpOptions)
+      return this.httpClient.get(url, httpOptions);
     }if(method == 'post'){
       return this.httpClient.post(url, body, httpOptions);
     }if(method == 'delete'){

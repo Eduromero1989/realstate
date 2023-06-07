@@ -9,8 +9,8 @@
               <div class="form-group">
                 <label class="col-sm-4 label">Sucursal</label><span class="required-asterisk">  *</span>
                 <div class="col-sm-10"></div>
-                <nb-select [(ngModel)]="sucursal" selected="1">
-                  <nb-option value="1">Manizales</nb-option>
+                <nb-select [(ngModel)]="sucursal">
+                  <nb-option *ngFor="let dato of lista_sucursal" [value]="dato.id">{{ dato.nombre }}</nb-option>
                 </nb-select>
               </div>
             </div>

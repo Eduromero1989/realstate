@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './usuario.component.html',
   styleUrls: ['./usuario.component.scss']
 })
-export class UsuarioComponent implements OnInit {
+export class UsuarioComponent{
 
   emailPattern: RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -44,8 +44,8 @@ export class UsuarioComponent implements OnInit {
       );
   }
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     throw new Error('Method not implemented.');
-  }
+  }*/
 
 }

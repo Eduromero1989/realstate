@@ -19,11 +19,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Inmuebles',
     icon: 'home-outline',
-    children:[
+    children: [
       {
-        title:'Ingresar Inmueble',
+        title: 'Ingresar Inmueble',
         icon: 'home-outline',
-        link:'/pages/inmuebles/create-inmuebles'
+        link: '/pages/inmuebles/create-inmuebles'
 
       },
       {
@@ -40,6 +40,28 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Listar',
         link: '/pages/estate'
+      }
+    ]
+  },
+  {
+    title: 'Login usuario',
+    icon: 'home-outline',
+    children: [
+      {
+        title: 'Mostrar login usuario',
+        icon: 'home-outline',
+        link: '/pages/login/usuario'
+      }
+    ]
+  },
+  {
+    title: 'Registrar usuario',
+    icon: 'home-outline',
+    children: [
+      {
+        title: 'Registro de usuario',
+        icon: 'home-outline',
+        link: '/pages/registro/usuario'
       }
     ]
   },

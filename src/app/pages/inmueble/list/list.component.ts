@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'ngx-list',
@@ -6,23 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent {
-  List: {
-    id: {
-      title: 'Numero de Referencia',
-      type: 'number',
-    },
-    firstName: {
-      title: 'Dirección',
-      type: 'string',
-    },
-    lastName: {
-      title: 'Fecha disponible',
-      type: 'string',
-    }
+  headers: string[] = ['ID REGISTRO','ID INMUEBLE','FECHA DISPONIBILIDAD','ACCIONES'];
+
+  lista_inumeble_activo: any[] = [];
+
+  constructor(private apiServices: ApiService) {}
+  ngOnInit(): void {
+
+    this.apiServices.callServices('http://localhost:5235/ServicioOfertas', 'get').subscribe(
+      (response) => {
+        console.log('Response ApiService: ', response);
+        this.lista_inumeble_activo = response.datos;
+      }
+    );
+
   }
-  constructor() {}
-
-  /*ngOnInit(): void {
-  }*/
-
+ 
 }

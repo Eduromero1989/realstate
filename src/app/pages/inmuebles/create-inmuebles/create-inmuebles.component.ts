@@ -8,11 +8,18 @@ import { HttpHeaders } from '@angular/common/http';
   templateUrl: './create-inmuebles.component.html',
   styleUrls: ['./create-inmuebles.component.scss']
 })
-export class CreateInmueblesComponent{
+export class CreateInmueblesComponent implements OnInit{
   inmuebleForm: FormGroup;
-
+  ngOnInit() {
+    this.get_sucursal();
+  }
   constructor(private apiServices: ApiService) { }
-
+  ////quemados
+  id: number = 1;
+  idSucursal: number = 2;
+  idTipoInmueble: number = 1;
+  idPersona: number = 1;
+  idEstado: number = 1;
   sucursal: number;
   referencia: string;
   direccion: string;
@@ -23,35 +30,15 @@ export class CreateInmueblesComponent{
   habitaciones: number;
   banos: number;
   cocina: number;
-  alquiler: boolean;
+  alquiler: number;
   gas: boolean;
   parqueadero: boolean;
   ventaI: boolean;
   alquilerI: boolean;
   fechaI: Date;
   fechaF: Date;
-  opciones_sucursal: any[] = [];
-  seleccion: any;
-
-  /////
-  seleccion_sucursal: string;
-  
- /* ngOnInit(): void {
-
-    this.obtenerDatos();
-  }*/
-
-  /**
-   * The function "obtenerDatos" retrieves data from an API service and assigns it to the
-   * "opciones_sucursal" variable.
-   */
-  /*obtenerDatos() {
-    this.apiServices.obtenerDatos().subscribe((data: any[]) => {
-      this.opciones_sucursal = data;
-    });
-  }*/
-
-
+  ///listas 
+  lista_sucursal: any []=[];
   validarCampos(): boolean {
     if (
       this.direccion &&
@@ -74,34 +61,13 @@ export class CreateInmueblesComponent{
     }
     return false;
   }
-
-  GetSucursal():void{
-    let datos = {
-      "nombre": this.seleccion_sucursal,
-    }
-    this.apiServices
-    .callServices('http://localhost:5235/ServicioSucursales', 'get',datos)
-    .subscribe(
-      (response) => {
-        console.log('Response ApiService:', response);
-        // Hacer algo con la respuesta del servicio
-      },
-      (error) => {
-        console.error('Error ApiService:', error);
-        // Manejar el error de la solicitud
-      }
-    );
-
-  }
-
   Post(): void {
     if (this.validarCampos()) {
       let datos = {
-        "id": 1,
-        "idSucursal": 1,
-        "idTipoInmueble": 1,
-        "idPersona": 1,
-        "idEstado": 1,
+        "idSucursal": this.idSucursal,
+        "idTipoInmueble": this.idTipoInmueble,
+        "idPersona": this.idPersona,
+        "idEstado": this.idEstado,
         "referencia": this.referencia,
         "direccion": this.direccion,
         "superficie": this.superficie,
@@ -111,12 +77,32 @@ export class CreateInmueblesComponent{
         "tieneGas": true,
         "tieneParqueadero": true,
       }
+      let datos_2={
+        "idInmueblle": this.id,
+        "idEstado": this.estado,
+        "fechaInicio":this.fechaI,
+        "fechafin":this.fechaF,
+        "montoVenta": this.Venta,
+        "montoalquiler": this.alquiler,
+        "esAlquiler": true,
+        "esVenta": true,
+      }
       const confirmacion = window.confirm('¿Estás seguro de enviar el formulario?');
       if (confirmacion) {
         //Authorization: Basic <credenciales en base64>;
         
-        this.apiServices
-          .callServices('http://localhost:5235/ServicioInmuebles', 'post',datos)
+        this.apiServices.callServices('http://localhost:5235/ServicioInmuebles','post',datos)
+          .subscribe(
+            (response) => {
+              console.log('Response ApiService:', response);
+              // Hacer algo con la respuesta del servicio
+            },
+            (error) => {
+              console.error('Error ApiService:', error);
+              // Manejar el error de la solicitud
+            }
+          );
+          this.apiServices.callServices('http://localhost:5235/ServicioOfertas','post',datos_2)
           .subscribe(
             (response) => {
               console.log('Response ApiService:', response);
@@ -132,4 +118,17 @@ export class CreateInmueblesComponent{
       }
     }
   }
+
+  get_sucursal():void{
+
+    this.apiServices.callServices('http://localhost:5235/ServicioSucursales', 'get').subscribe(
+      (response) => {
+        console.log('Response ApiService: ', response);
+        this.lista_sucursal = response.datos;
+        console.log(response);
+      }
+    );
+
+  }
+  
 }
