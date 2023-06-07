@@ -10,7 +10,7 @@ export class DialogCommentComponent {
 
   @Input() title: string;
 
-  constructor(protected ref: NbDialogRef<DialogCommentComponent>) {}
+  constructor(protected ref: NbDialogRef<DialogCommentComponent>) { }
 
   dismiss() {
     this.ref.close();

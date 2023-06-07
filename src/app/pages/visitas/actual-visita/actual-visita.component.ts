@@ -5,6 +5,7 @@ import { NbDialogService } from '@nebular/theme';
 import { DialogCommentComponent } from './dialog-comment/dialog-comment.component';
 import { ApiService } from '../../api-service.service';
 import { HttpHeaders } from '@angular/common/http';
+import { ServicesVisitaService } from '../../../services-visita.service';
 
 
 @Component({
@@ -15,7 +16,6 @@ import { HttpHeaders } from '@angular/common/http';
 export class ActualVisitaComponent implements OnInit {
 
   data: any;
-
 
   username = 'calosegc11@gmail.com';
   password = '12345';
@@ -65,15 +65,15 @@ export class ActualVisitaComponent implements OnInit {
   constructor(
 
     private dialogService: NbDialogService,
-    private apiService: ApiService,
+    private visitasService: ServicesVisitaService
 
   ) { }
 
 
   ngOnInit(): void {
     this.showInfo();
-    this.apiService
-      .callServices('http://localhost/ServicioInmuebles', 'get', this.httpOptions)
+    this.visitasService
+      .service('http://localhost:5235/ServicioVisitas', 'get')
       .subscribe(
         (response) => {
           console.log('Response ApiService:', response);
