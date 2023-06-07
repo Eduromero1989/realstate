@@ -34,6 +34,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ]
   },
   {
+    title: 'Visitas',
+    icon: 'home-outline',
+    children: [
+      {
+        title: 'Listar',
+        link: '/pages/visitas/actual-visita'
+      },
+      {
+        title: 'Solicitar',
+        link: '/pages/solicitarvisita/solicitar'
+      }
+    ]
+  },
+  {
     title: 'Propiedades',
     icon: 'home-outline',
     children: [

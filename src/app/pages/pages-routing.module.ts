@@ -96,6 +96,11 @@ const routes: Routes = [{
         .then(m => m.VisitasModule)
     },
     {
+      path: 'solicitarvisita',
+      loadChildren: () => import('./solicitarvisita/solicitarvisita.module')
+        .then(m => m.SolicitarvisitaModule)
+    },
+    {
       path: '**',
       component: NotFoundComponent,
     },
