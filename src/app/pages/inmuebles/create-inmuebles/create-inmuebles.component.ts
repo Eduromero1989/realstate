@@ -12,11 +12,12 @@ export class CreateInmueblesComponent implements OnInit{
   inmuebleForm: FormGroup;
   ngOnInit() {
     this.get_sucursal();
+    this.get_inmueble();
   }
   constructor(private apiServices: ApiService) { }
   ////quemados
   id: number = 1;
-  idSucursal: number = 2;
+  idSucursal: number;
   idTipoInmueble: number = 1;
   idPersona: number = 1;
   idEstado: number = 1;
@@ -39,6 +40,7 @@ export class CreateInmueblesComponent implements OnInit{
   fechaF: Date;
   ///listas 
   lista_sucursal: any []=[];
+  lista_inmueble: any []=[];
   validarCampos(): boolean {
     if (
       this.direccion &&
@@ -54,7 +56,7 @@ export class CreateInmueblesComponent implements OnInit{
       this.parqueadero &&
       this.ventaI &&
       this.alquilerI &&
-      this.sucursal &&
+      this.idSucursal &&
       this.referencia
     ) {
       return new Date(this.fechaF) >= new Date(this.fechaI);
@@ -125,6 +127,17 @@ export class CreateInmueblesComponent implements OnInit{
       (response) => {
         console.log('Response ApiService: ', response);
         this.lista_sucursal = response.datos;
+        console.log(response);
+      }
+    );
+
+  }
+  get_inmueble():void{
+
+    this.apiServices.callServices('http://localhost:5235/ServicioTipoInmuebles', 'get').subscribe(
+      (response) => {
+        console.log('Response ApiService: ', response);
+        this.lista_inmueble = response.datos;
         console.log(response);
       }
     );

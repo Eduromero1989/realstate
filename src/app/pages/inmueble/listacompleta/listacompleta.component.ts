@@ -19,7 +19,15 @@ export class ListacompletaComponent {
     this.apiServices.callServices('http://localhost:5235/ServicioInmuebles', 'get').subscribe(
       (response) => {
         console.log('Response ApiService: ', response);
-        this.lista = response.datos;
+
+        
+
+        response.datos.forEach(element => {
+          if (element.id === this.apiServices.inmuebleseleccionado.id) {
+            this.lista.push(element)
+          }
+          
+        });
       }
     );
 

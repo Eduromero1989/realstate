@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-list',
@@ -11,7 +12,7 @@ export class ListComponent {
 
   lista_inumeble_activo: any[] = [];
 
-  constructor(private apiServices: ApiService) {}
+  constructor(private apiServices: ApiService, private router : Router) {}
   ngOnInit(): void {
 
     this.apiServices.callServices('http://localhost:5235/ServicioOfertas', 'get').subscribe(
@@ -21,6 +22,11 @@ export class ListComponent {
       }
     );
 
+  }
+
+  editar(item){
+    this.apiServices.inmuebleseleccionado = JSON.parse(JSON.stringify(item));
+    this.router.navigate(['/pages/inmueble/listacompleta']);
   }
  
 }

@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
        
+  inmuebleseleccionado;
   constructor(private httpClient:HttpClient) { }
 
   callServices(url:string, method:string, body?:any): Observable<any> {
