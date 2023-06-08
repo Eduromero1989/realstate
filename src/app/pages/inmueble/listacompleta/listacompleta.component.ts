@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'ngx-listacompleta',
@@ -6,10 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listacompleta.component.scss']
 })
 export class ListacompletaComponent {
+  headers: string[] = ['ID', 'Sucursal', 'Tipo', 'Estado', 'Referencia', 'Dirección', 'Superficie', 'Habitaciones', 'Baños', 'Cocina', 'Tiene Gas', 'Tiene Parqueadero'];
 
-  constructor() { }
+  lista: any[] = [];
 
-  /*ngOnInit(): void {
-  }*/
+
+  constructor(private apiServices: ApiService) { }
+  
+  ngOnInit(): void {
+
+    this.apiServices.callServices('http://localhost:5235/ServicioInmuebles', 'get').subscribe(
+      (response) => {
+        console.log('Response ApiService: ', response);
+
+        
+
+        response.datos.forEach(element => {
+          if (element.id === this.apiServices.inmuebleseleccionado.id) {
+            this.lista.push(element)
+          }
+          
+        });
+      }
+    );
+
+  }
 
 }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Iniciar sesión</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      
+    }
+
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .scroll-container {
+      max-height: 300px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .message {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="login">
+    <h3 class="text-center text-white pt-5">Login form</h3>
+    <div class="container">
+      <div id="login-row" class="row justify-content-center align-items-center">
+        <div id="login-column" class="col-md-6">
+          <div id="login-box" class="col-md-12">
+            <form (ngSubmit)="login()" #loginForm="ngForm">
+              <h3 class="text-center text-info">Login</h3>
+              <div class="scroll-container">
+                <div class="form-group">
+                  <label for="email" class="text-info">Correo electrónico:</label><br>
+                  <input type="email" id="email" name="email" class="form-control" [(ngModel)]="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="password" class="text-info">Contraseña:</label><br>
+                  <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label for="remember-me" class="text-info"><span>Recuérdame</span> <span><input id="remember-me"
+                        name="remember-me" type="checkbox"></span></label><br>
+                  <input type="submit" value="Iniciar sesión" class="btn btn-primary">
+                </div>
+                <p>¿No tienes una cuenta? <a href="/registro/usuario">Regístrate aquí</a>.</p>
+              </div>
+
+              <div *ngIf="InicioStatus === 'success'" class="message text-success">
+                ¡Inicio de sesión exitoso! .
+              </div>
+              <div *ngIf="InicioStatus === 'failure'" class="message text-danger">
+                No se puede iniciar sesión. Verifique sus datos.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

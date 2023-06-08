@@ -1,0 +1,91 @@
+<div>
+  <div>
+    <nb-card>
+      <nb-card-header>Registro de Usuarios</nb-card-header>
+      <nb-card-body>
+        <script src="/lib/jcs-auto-validate.min.js"></script>
+        <div class="row">
+          <div class="col-sm-3">
+          <div class="form-group">
+            <label for="nombre" class="label">Nombres</label><span class="required-asterisk"> *</span>
+            <input  class="form-control " type="text" nbInput fullWidth id="nombre" placeholder="Nombre completo" 
+            [(ngModel)]="nombre"  required = "required">
+          </div>
+          </div>
+          <div class="col-sm-3">
+        <div class="form-group">
+          <label for="apellido" class="label">Apellidos</label><span class="required-asterisk"> *</span>
+          <input  class="form-control " type="text" nbInput fullWidth id="apellido" placeholder="Apellidos Completos" 
+          [(ngModel)]="apellido"  required = "required">
+        </div>
+      </div>
+      </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="identificacion" class="label">No Identificacion </label><span class="required-asterisk"> *</span>
+              <input  class="form-control " type="text" nbInput fullWidth id="identificacion" placeholder="No Identificacion" 
+              [(ngModel)]="identificacion"  required = "required">
+            </div>
+            </div>
+            <div class="col-sm-3">
+            <div class="form-group">
+              <label for="telefono" class="label">No telefonico</label><span class="required-asterisk"> *</span>
+              <input  class="form-control " type="text" nbInput fullWidth id="telefono" placeholder="No Telefonico" 
+              [(ngModel)]="telefono"  required = "required">
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="direccion" class="label">Direccion</label><span class="required-asterisk"> *</span>
+                <input  class="form-control " type="text" nbInput fullWidth id="direccion" placeholder="Dirección" 
+                [(ngModel)]="direccion"  required = "required">
+              </div>
+              </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="correo" class="label">Correo</label><span class="required-asterisk"> *</span>
+                <input  class="form-control " type="text" nbInput fullWidth id="correo" placeholder="Correo electronico" 
+                [(ngModel)]="correo"  required = "required">
+              </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label for="password" class="label">Contraseña</label><span class="required-asterisk"> *</span>
+                  <input  class="form-control " type="text" nbInput fullWidth id="password" placeholder="Contraseña" 
+                  [(ngModel)]="password"  required = "required">
+                </div>
+                </div>
+              
+            </div>
+             
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-group">
+              <p></p>
+                  <form (click)="Post_usuario()">
+                    <!-- ...campos de entrada... -->
+                    <button type="submit" nbButton status="success" [disabled]="!validarCampos()">Guardar</button>
+                    
+                  </form>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <p></p>
+              <button _ngcontent-bbs-c259="" type="submit" nbButton status="success">
+                <a _ngcontent-bbs-c259="" routerlink="../dashboard" ng-reflect-router-link="../dashboard"
+                  href="/src/app/pages/dashboard/dashboard.component.html">Cancelar</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+    <script>
+      var app=angular.module('DemoApp',['jcs-autoValidate']);
+      </script>
+  </div>
+</div>
