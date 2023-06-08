@@ -103,6 +103,11 @@ const routes: Routes = [{
         .then(m => m.EstateModule)
     },
     {
+      path: 'branch-office',
+      loadChildren: () => import('./branch-office/branch-office.module')
+        .then(m => m.BranchOfficeModule)
+    },
+    {
       path: 'visitas',
       loadChildren: () => import('./visitas/visitas.module')
         .then(m => m.VisitasModule)

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
 import { EstateRoutingModule } from './estate-routing.module';
-import { NbCardModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbIconModule, NbTooltipModule } from '@nebular/theme';
 import { CardComponent } from './card/card.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
@@ -19,7 +19,10 @@ import { SharedModule } from '../../shared/shared.module';
     EstateRoutingModule,
     FormsModule,
     NbCardModule,
-    SharedModule
+    NbTooltipModule,
+    NbButtonModule,
+    SharedModule,
+    NbIconModule
   ]
 })
 export class EstateModule { }
