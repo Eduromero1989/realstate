@@ -19,7 +19,8 @@ export class ListacompletaComponent {
     this.apiServices.callServices('http://localhost:5235/ServicioInmuebles', 'get').subscribe(
       (response) => {
         console.log('Response ApiService: ', response);
-
+        const confirmacion = window.confirm('Datos Obtenidos ¡¡¡');
+        console.log(confirmacion);
         
 
         response.datos.forEach(element => {

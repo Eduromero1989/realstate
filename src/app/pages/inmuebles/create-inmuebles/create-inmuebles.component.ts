@@ -117,6 +117,8 @@ export class CreateInmueblesComponent implements OnInit{
         this.apiServices.callServices('http://localhost:5235/ServicioInmuebles','post',datos)
           .subscribe(
             (response) => {
+              const confirmacion = window.confirm('Registro Exitoso ¡¡¡');
+              console.log(confirmacion);
               console.log('Response ApiService:', response);
               // Hacer algo con la respuesta del servicio
             },
@@ -128,6 +130,8 @@ export class CreateInmueblesComponent implements OnInit{
           this.apiServices.callServices('http://localhost:5235/ServicioOfertas','post',datos_2)
           .subscribe(
             (response) => {
+              const confirmacion = window.confirm('Registro Exitoso ¡¡¡');
+              console.log(confirmacion);
               console.log('Response ApiService:', response);
               // Hacer algo con la respuesta del servicio
             },

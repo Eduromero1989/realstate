@@ -51,6 +51,8 @@ export class CreateSucursalComponent{
         this.apiServices.callServices('http://localhost:5235/ServicioSucursales','post', datos)
           .subscribe(
             (response) => {
+              const confirmacion = window.confirm('Registro Exitoso ¡¡¡');
+              console.log(confirmacion);
               console.log('Response ApiService:', response);
               // Hacer algo con la respuesta del servicio
             },
@@ -61,6 +63,7 @@ export class CreateSucursalComponent{
           );
         }
       }
+      this.limpiarDatosIngresados();
     }
 
 }

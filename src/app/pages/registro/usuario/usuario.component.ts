@@ -35,7 +35,16 @@ export class UsuarioComponent{
       return true;
     }
   }
-
+  limpiarDatosIngresados() {
+    this.nombre = '';
+    this.apellido = '';
+    this.identificacion = '';
+    this.correo = '';
+    this.direccion = '';
+    this.telefono = '';
+    this.password = '';
+    
+  }
   Post_usuario(): void {
     if (this.validarCampos()) {
       let datos = {
@@ -55,6 +64,8 @@ export class UsuarioComponent{
         this.apiServices.callServices('http://localhost:5235/ServicioPersonas', 'post', datos)
           .subscribe(
             (response) => {
+              const confirmacion = window.confirm('Registro Exitoso ¡¡¡');
+              console.log(confirmacion);
               console.log('Response ApiService:', response);
               // Hacer algo con la respuesta del servicio
             },
@@ -71,5 +82,6 @@ export class UsuarioComponent{
     throw new Error('Method not implemented.');
   }*/
     }
+    this.limpiarDatosIngresados();
   }
 }
