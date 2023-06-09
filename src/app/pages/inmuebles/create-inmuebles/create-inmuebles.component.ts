@@ -15,36 +15,26 @@ export class CreateInmueblesComponent implements OnInit{
   ngOnInit() {
     this.get_sucursal();
     this.get_inmueble();
-
-export class CreateInmueblesComponent {
-  
-  constructor() { }
-  
-  /*
-  implements OnInit 
-  ngOnInit(): void {
-
-  }
+    this.get_persona();
+  }  
   constructor(private apiServices: ApiService) { }
   ////quemados
-  id: number = 1;
+  //id: number = 1;
   idSucursal: number;
-  idTipoInmueble: number = 1;
-  idPersona: number = 1;
+  idTipoInmueble: number;
+  idPersona: number;
   idEstado: number = 1;
-  sucursal: number;
   referencia: string;
   direccion: string;
   superficie: number;
   Venta: number;
   estado: number;
-  tipo: number;
   habitaciones: number;
   banos: number;
   cocina: number;
   alquiler: number;
-  gas: boolean;
-  parqueadero: boolean;
+  gas: boolean ;
+  parqueadero: boolean ;
   ventaI: boolean;
   alquilerI: boolean;
   fechaI: Date;
@@ -53,13 +43,14 @@ export class CreateInmueblesComponent {
   ///listas 
   lista_sucursal: any []=[];
   lista_inmueble: any []=[];
+  lista_personas: any []=[];
+
   validarCampos(): boolean {
     if (
       this.direccion &&
       this.superficie &&
       this.Venta &&
       this.estado &&
-      this.tipo &&
       this.habitaciones &&
       this.banos &&
       this.cocina &&
@@ -69,12 +60,30 @@ export class CreateInmueblesComponent {
       this.ventaI &&
       this.alquilerI &&
       this.idSucursal &&
-      this.referencia
+      this.referencia 
     ) {
       return new Date(this.fechaF) >= new Date(this.fechaI);
     }
     return false;
   }
+
+  limpiarDatosIngresados() {
+    this.idSucursal = null;
+    this.direccion = '';
+    this.superficie = null;
+    this.Venta = null;
+    this.estado = 1;
+    this.habitaciones = null;
+    this.banos = null;
+    this.cocina = null;
+    this.alquiler = null;
+    this.idTipoInmueble = null;
+    this.fechaI = null;
+    this.fechaF = null;
+    this.idPersona = null;
+    this.referencia = '';
+  }
+  
   Post(): void {
     if (this.validarCampos()) {
       let datos = {
@@ -88,18 +97,18 @@ export class CreateInmueblesComponent {
         "nroHabitaciones": this.habitaciones,
         "nroBanios": this.banos,
         "nroCocinas":this.cocina,
-        "tieneGas": true,
-        "tieneParqueadero": true,
+        "tieneGas": this.gas,
+        "tieneParqueadero": this.parqueadero,
       }
       let datos_2={
-        "idInmueblle": this.id,
+        "idInmueblle": this.idPersona,
         "idEstado": this.estado,
         "fechaInicio":this.fechaI,
         "fechafin":this.fechaF,
         "montoVenta": this.Venta,
         "montoalquiler": this.alquiler,
-        "esAlquiler": true,
-        "esVenta": true,
+        "esAlquiler": this.alquilerI,
+        "esVenta": this.ventaI,
       }
       const confirmacion = window.confirm('¿Estás seguro de enviar el formulario?');
       if (confirmacion) {
@@ -131,6 +140,7 @@ export class CreateInmueblesComponent {
         window.alert('¡Registro Incompleto!');
       }
     }
+    this.limpiarDatosIngresados();
   }
 
   get_sucursal():void{
@@ -153,57 +163,18 @@ export class CreateInmueblesComponent {
         console.log(response);
       }
     );
-
-  
-
-  
-  validarCampos(): boolean {
-      if(
-      this.direccion &&
-      this.superficie &&
-      this.Venta &&
-      this.habitaciones &&
-      this.banos &&
-      this.cocina &&
-      this.alquiler &&
-      this.gas &&
-      this.parqueadero &&
-      this.ventaI &&
-      this.alquilerI
-      ){
-        return new Date(this.fechaF) >= new Date(this.fechaI);
-      }
-      return false;
-  }
-  
-  capturarDatos(): void {
-    if(this.validarCampos()){
-    const confirmacion = window.confirm('¿Estás seguro de enviar el formulario?');
-    if(confirmacion){
-    console.log('Direccion:', this.direccion);
-    console.log('Superficie:', this.superficie);
-    console.log('Valor Venta:', this.Venta);
-    console.log('estado:', this.estado);
-    console.log('Habitaciones:', this.habitaciones);
-    console.log('Baños:', this.banos);
-    console.log('Cocinas:', this.cocina);
-    console.log('En alquiler:', this.alquiler);
-    console.log('gas:', this.gas);
-    console.log('Parqueadero:', this.parqueadero);
-    console.log('En venta:', this.ventaI);
-    console.log('En alquiler:', this.alquilerI);
-    console.log('fecha Inicio:', this.fechaI);
-    console.log('fecha Fi :', this.fechaF);
-    window.alert('¡Registro exitoso!');
-    }else{
-
-      window.alert('¡Registro Imcompleto!');
     }
-  }
-  }
+    get_persona():void{
+
+      this.apiServices.callServices('http://localhost:5235/ServicioPersonas', 'get').subscribe(
+        (response) => {
+          console.log('Response ApiService: ', response);
+          this.lista_personas = response.datos;
+          console.log(response);
+        }
+      );
   
-
-
-  }
+    }
+    
   
 }

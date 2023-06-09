@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private httpClient:HttpClient) { }
 
   callServices(url:string, method:string, body?:any): Observable<any> {
-    const username = 'edulds1989@gamil.com';
+    const username = 'edulds1989@gmail.com';
     const password = '1234';
     const credentials = btoa(username + ':' + password);
 

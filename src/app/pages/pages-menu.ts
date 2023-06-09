@@ -63,7 +63,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Registro de usuario',
         icon: 'home-outline',
         link: '/pages/registro/usuario'
-
+      }
+     ]
+    },
+    {    
     title: 'Propiedades',
     icon: 'home-outline',
     children: [
@@ -79,11 +82,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'briefcase-outline',
     children: [
       {
-        title: 'Listar',
-        link: '/pages/branch-office'
+        icon: 'briefcase-outline',
+        title: 'Registrar Sucursal',
+        link: '/pages/sucursal/create-sucursal'
       }
     ]
   },
+  
   // {
     //   title: 'Layout',
   //   icon: 'layout-outline',
