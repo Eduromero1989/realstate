@@ -93,6 +93,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'briefcase-outline',
     children: [
       {
+        title: 'Listar',
+        link: '/pages/branch-office'
+      },
+      {
         icon: 'briefcase-outline',
         title: 'Registrar Sucursal',
         link: '/pages/sucursal/create-sucursal'
@@ -105,8 +109,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'keypad-outline',
     link: '/pages/visitas/actual-visita'
   },
-
-
   // {
     //   title: 'Layout',
   //   icon: 'layout-outline',
