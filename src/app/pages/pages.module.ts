@@ -21,7 +21,7 @@ import { VisitasModule } from './visitas/visitas.module';
     VisitasModule
   ],
   declarations: [
-    PagesComponent,
+    PagesComponent
   ],
 })
 export class PagesModule {

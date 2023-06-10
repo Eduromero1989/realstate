@@ -35,11 +35,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Visitas',
-    icon: 'browser-outline',
+    icon: 'home-outline',
     children: [
       {
         title: 'Listar',
         link: '/pages/visitas/actual-visita'
+      },
+      {
+        title: 'Solicitar',
+        link: '/pages/solicitarvisita/solicitar'
       }
     ]
   },
@@ -67,6 +71,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
      ]
     },
     {
+
     title: 'Propiedades',
     icon: 'home-outline',
     children: [
