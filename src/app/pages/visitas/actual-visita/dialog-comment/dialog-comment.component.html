@@ -1,8 +1,11 @@
 <nb-card>
   <nb-card-header>{{ title }}</nb-card-header>
   <nb-card-body>
+    <input type="hidden"/>
     <div class="cls-text-area">
-      <textarea class="cls-inner-text-area" rows="5" nbInput fullWidth shape="round" placeholder="¡Ingresa tus comentarios aquí!"></textarea>
+      <textarea [(ngModel)]="comentario" 
+      class="cls-inner-text-area" rows="5" 
+      nbInput fullWidth shape="round" placeholder="¡Ingresa tus comentarios aquí!"></textarea>
     </div>
   </nb-card-body>
   <nb-card-footer>

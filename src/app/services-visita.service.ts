@@ -28,7 +28,12 @@ export class ServicesVisitaService {
       return this.httpClient.get(url, httpOptions);
     } else if (method = "post") {
       return this.httpClient.post(url, body, httpOptions);
+    } else if (method = "patch") {
+      return this.httpClient.patch(url, body, httpOptions);
+    } else if (method = "put") {
+      return this.httpClient.put(url, body, httpOptions);
     }
+
   }
 }
 
