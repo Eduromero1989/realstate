@@ -5,51 +5,30 @@
     </nb-card-header>
 
     <nb-card-body>
-
-        <div class="buttons-row">
-            <div class="cls-header-buttons">
-                <nb-card>
-                    <nb-card-header>
-                        <div class="buttons-row cls-buttons">
-                            <button nbButton>Inicio</button>
-                            <button nbButton>sucursal</button>
-                            <button nbButton>Visita</button>
-                            <button nbButton>Cliente</button>
-                            <button nbButton>Propietario</button>
-                            <button nbButton (click)="open()">Comentarios</button>
-                        </div>
-                    </nb-card-header>
-                </nb-card>
-            </div>
-        </div>
-
-
+        
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Fecha solicitud visita</th>
+                    <th scope="col">id oferta</th>
                     <th scope="col">Fecha visita</th>
-                    <th scope="col">Hora</th>
                     <th scope="col">Referencia inmueble</th>
                     <th scope="col">Comentarios</th>
+
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of listaInmuebles">
-                    <td>{{item.fechaSolicitud}}</td>
-                    <td>{{item.fechaVisita}}</td>
-                    <td>{{item.Hora}}</td>
-                    <td>{{item.Referencia}}</td>
+                <tr *ngFor="let item of listaInmuebles" (click)="select(item)" [recibeDatos]="item">
+                    <td>{{item.id}}</td>
+                    <td>{{item.fecha}}</td>
+                    <td>{{item.idOferta}}</td>
                     <td>{{item.comentario}}</td>
+                    <button nbButton hero status="primary" (click)="open(item)">Agregar comentario</button>
+                    
                 </tr>
+                
             </tbody>
         </table>
 
     </nb-card-body>
-
-    <nb-card-footer>
-        <a>footer</a>
-    </nb-card-footer>
-
 
 </nb-card>

@@ -66,7 +66,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }
      ]
     },
-    {    
+    {
     title: 'Propiedades',
     icon: 'home-outline',
     children: [
@@ -76,6 +76,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
       }
     ]
+  },
+  {
+    //Listar visitas inmueble
+    title: 'visitas',
+    icon: 'keypad-outline',
+    link: '/pages/visitas/actual-visita'
   },
   {
     title: 'Sucursales',
@@ -88,7 +94,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }
     ]
   },
-  
+  {
+    //Listar visitas inmueble
+    title: 'visitas',
+    icon: 'keypad-outline',
+    link: '/pages/visitas/actual-visita'
+  },
+
+
   // {
     //   title: 'Layout',
   //   icon: 'layout-outline',

@@ -36,7 +36,7 @@ const routes: Routes = [{
       loadChildren: () => import('./sucursal/sucursal.module')
         .then(m => m.SucursalModule)
     },
-  
+
     {
       path: 'iot-dashboard',
       component: DashboardComponent,
@@ -46,6 +46,12 @@ const routes: Routes = [{
       path: 'inmuebles',
       loadChildren: () => import('./inmuebles/inmuebles.module')
       .then(m => m.InmueblesModule)
+    },
+    {
+      //Visitas al inmueble
+      path: 'visitas',
+      loadChildren:() => import('./visitas/visitas.module')
+      .then(m => m.VisitasModule)
     },
     {
       path: 'layout',
