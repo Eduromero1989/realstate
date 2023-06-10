@@ -6,14 +6,14 @@ import { ApiService } from '../../../services/api.service';
   templateUrl: './listacompleta.component.html',
   styleUrls: ['./listacompleta.component.scss']
 })
-export class ListacompletaComponent {
+export class ListacompletaComponent implements OnInit{
   headers: string[] = ['ID', 'Sucursal', 'Tipo', 'Estado', 'Referencia', 'Dirección', 'Superficie', 'Habitaciones', 'Baños', 'Cocina', 'Tiene Gas', 'Tiene Parqueadero'];
 
   lista: any[] = [];
 
 
   constructor(private apiServices: ApiService) { }
-  
+
   ngOnInit(): void {
 
     this.apiServices.callServices('http://localhost:5235/ServicioInmuebles', 'get').subscribe(
@@ -21,13 +21,13 @@ export class ListacompletaComponent {
         console.log('Response ApiService: ', response);
         const confirmacion = window.confirm('Datos Obtenidos ¡¡¡');
         console.log(confirmacion);
-        
+
 
         response.datos.forEach(element => {
           if (element.id === this.apiServices.inmuebleseleccionado.id) {
             this.lista.push(element)
           }
-          
+
         });
       }
     );

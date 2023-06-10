@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent {
+export class ListComponent implements OnInit{
   headers: string[] = ['ID REGISTRO','ID INMUEBLE','FECHA DISPONIBILIDAD','ACCIONES'];
 
   lista_inumeble_activo: any[] = [];
@@ -28,5 +28,5 @@ export class ListComponent {
     this.apiServices.inmuebleseleccionado = JSON.parse(JSON.stringify(item));
     this.router.navigate(['/pages/inmueble/listacompleta']);
   }
- 
+
 }
