@@ -35,9 +35,9 @@ export class DialogCommentComponent {
 
   ) { }
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
     
-  }
+  // }
   /**
 * @description función que agrega el nuevo comentario
 * @param
