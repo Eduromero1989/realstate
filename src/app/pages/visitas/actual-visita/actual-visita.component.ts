@@ -23,6 +23,7 @@ export class ActualVisitaComponent implements OnInit {
   listaInmuebles: [] = [];
   titulo: string;
 
+  
   //json
   parentMessage: any;
 
