@@ -6,14 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServicesVisitaService {
-
+  inmuebleseleccionado;
   constructor(
     private httpClient: HttpClient
   ) { }
 
   service(url: string, method: string, body?: any): Observable<any> {
-    const username = 'sebastianrios@gmail.com';
-    const password = 'Sebastianrios123';
+    const username = 'edulds1989@gmail.com';
+    const password = '1234';
     const credentials = btoa(username + ':' + password);
 
     const headers = new HttpHeaders({

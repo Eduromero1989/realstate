@@ -10,8 +10,8 @@ export class VisitaservicesService {
   constructor(private httpClient: HttpClient) { }
 
   ServicesVisit(url: string, method: string, body?: any):Observable<any>{
-    const username = 'calosegc11@gmail.com';
-    const password = '12345';
+    const username = 'edulds1989@gmail.com';
+    const password = '1234';
     const credentials = btoa(username + ':' + password);
 
     const headers = new HttpHeaders({

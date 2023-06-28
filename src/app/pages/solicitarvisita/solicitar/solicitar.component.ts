@@ -42,7 +42,7 @@ export class SolicitarComponent implements OnInit {
         this.realizada = false;
       }
       let datos = {
-        "idOferta": 1,
+        "idOferta": 8,
         "idPersona": 1,
         "fecha": this.fecha['fecha'],
         "realizada": this.realizada,

@@ -59,6 +59,8 @@ export class UsuarioComponent {
     this.apiServices.callServices(this.loginUrl,'get', {})
           .subscribe(
             (response) => {
+              const confirmacion = window.confirm('Logeo Exitoso ¡¡¡');
+              console.log(confirmacion);
               console.log('Response ApiService:', response);
               // Hacer algo con la respuesta del servicio
             },

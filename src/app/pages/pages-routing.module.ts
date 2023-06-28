@@ -54,6 +54,12 @@ const routes: Routes = [{
       .then(m => m.VisitasModule)
     },
     {
+      //Visitas al inmueble
+      path: 'oferta',
+      loadChildren:() => import('./oferta/oferta.module')
+      .then(m => m.OfertaModule)
+    },
+    {
       path: 'layout',
       loadChildren: () => import('./layout/layout.module')
         .then(m => m.LayoutModule),
